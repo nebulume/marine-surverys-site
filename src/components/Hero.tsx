@@ -130,7 +130,7 @@ const Hero = () => {
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 1.2, ease, delay: 1.3 }}
-          className="h-px bg-gold/30 mx-6 md:mx-20 origin-left"
+          className="hidden md:block h-px bg-gold/30 mx-6 md:mx-20 origin-left"
         />
         <div className="flex justify-center py-6">
           <ChevronDown className="text-gold/60 animate-bounce-arrow" size={24} />
