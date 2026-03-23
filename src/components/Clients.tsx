@@ -49,7 +49,7 @@ const ClientCard = ({ c, i, isInView, ease, Icon }: {
     >
       {/* Card */}
       <div
-        className={`border p-8 flex flex-col items-center gap-4 transition-all duration-200 cursor-pointer overflow-hidden ${
+        className={`border p-8 flex flex-col items-center justify-center gap-4 transition-all duration-200 cursor-pointer overflow-hidden min-h-[160px] ${
           active ? "border-gold bg-gold/[0.08]" : "border-secondary-foreground/15 hover:border-gold hover:bg-gold/[0.08]"
         }`}
         style={{ borderRadius: 4 }}
