@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { Ship, Navigation, Shield, Landmark } from "lucide-react";
 
 const ease = [0.25, 0.1, 0.25, 1] as const;
@@ -38,7 +38,8 @@ const ClientCard = ({ c, i, isInView, ease, Icon }: {
   ease: readonly number[];
   Icon: React.ElementType;
 }) => {
-  const [hovered, setHovered] = useState(false);
+  const [active, setActive] = useState(false);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -48,27 +49,41 @@ const ClientCard = ({ c, i, isInView, ease, Icon }: {
     >
       {/* Card */}
       <div
-        className="border border-secondary-foreground/15 p-8 flex flex-col items-center gap-4 transition-all duration-200 hover:border-gold hover:bg-gold/[0.08] cursor-default overflow-hidden"
+        className={`border p-8 flex flex-col items-center gap-4 transition-all duration-200 cursor-pointer overflow-hidden ${
+          active ? "border-gold bg-gold/[0.08]" : "border-secondary-foreground/15 hover:border-gold hover:bg-gold/[0.08]"
+        }`}
         style={{ borderRadius: 4 }}
-        onMouseEnter={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onMouseEnter={() => setActive(true)}
+        onMouseLeave={() => setActive(false)}
+        onClick={() => setActive(v => !v)}
       >
         <Icon className="text-gold" size={32} strokeWidth={1.5} />
-        <div className="relative h-10 flex items-center justify-center">
-          <motion.span
-            className="font-body text-base font-semibold text-secondary-foreground text-center absolute whitespace-nowrap"
-            animate={{ opacity: hovered ? 0 : 1, y: hovered ? -8 : 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            {c.label}
-          </motion.span>
-          <motion.span
-            className="font-body text-sm font-medium text-gold text-center absolute whitespace-nowrap"
-            animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 8 }}
-            transition={{ duration: 0.2 }}
-          >
-            {c.funny}
-          </motion.span>
+        <div className="flex items-center justify-center min-h-[2.5rem]">
+          <AnimatePresence mode="wait">
+            {active ? (
+              <motion.span
+                key="funny"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+                className="font-body text-sm font-medium text-gold text-center"
+              >
+                {c.funny}
+              </motion.span>
+            ) : (
+              <motion.span
+                key="label"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+                className="font-body text-base font-semibold text-secondary-foreground text-center"
+              >
+                {c.label}
+              </motion.span>
+            )}
+          </AnimatePresence>
         </div>
       </div>
 
