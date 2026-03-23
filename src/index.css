@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --navy: 213 67% 14%;
+    --navy-mid: 213 61% 20%;
+    --steel: 201 63% 28%;
+    --gold: 42 50% 54%;
+    --gold-light: 40 68% 69%;
+    --off-white: 220 20% 97%;
+    --grey: 214 18% 61%;
+    --text-dark: 213 55% 11%;
+    --footer-bg: 213 72% 7%;
+
+    --background: 220 20% 97%;
+    --foreground: 213 55% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 55% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 55% 11%;
+
+    --primary: 42 50% 54%;
+    --primary-foreground: 213 67% 14%;
+
+    --secondary: 213 67% 14%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 20% 97%;
+    --muted-foreground: 214 18% 61%;
+
+    --accent: 201 63% 28%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 82%;
+    --ring: 42 50% 54%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --font-display: 'Cormorant Garamond', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --ease-maritime: cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.08em] text-primary;
+    font-family: var(--font-body);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 0 2px hsl(var(--gold) / 0.4), 0 4px 16px hsl(var(--gold) / 0.25);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold px-8 py-3.5 text-sm tracking-wide transition-all duration-200;
+    font-family: var(--font-body);
+    border-radius: 4px;
+  }
+
+  .btn-primary:hover {
+    @apply gold-glow;
+    transform: scale(1.03);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center bg-transparent text-secondary-foreground font-semibold px-8 py-3.5 text-sm tracking-wide transition-all duration-200 border border-secondary-foreground/40;
+    font-family: var(--font-body);
+    border-radius: 4px;
+  }
+
+  .btn-secondary:hover {
+    @apply border-gold text-gold;
+    transform: scale(1.03);
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center border px-8 py-3.5 text-sm font-medium tracking-wide transition-all duration-200;
+    font-family: var(--font-body);
+    border-radius: 4px;
+    border-color: rgba(255, 255, 255, 0.4);
+    color: white;
+  }
+
+  .btn-outline-white:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-20;
+  }
+}
