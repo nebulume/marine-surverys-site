@@ -114,12 +114,12 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease, delay: 1.1 }}
-          className="flex flex-row items-center justify-center gap-3"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3"
         >
-          <a href="#contact" className="btn-primary">
+          <a href="#contact" className="btn-primary w-48">
             Get in Touch
           </a>
-          <a href="#services" className="btn-primary">
+          <a href="#services" className="btn-primary w-48">
             View Services
           </a>
         </motion.div>
