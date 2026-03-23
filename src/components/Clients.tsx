@@ -49,7 +49,7 @@ const ClientCard = ({ c, i, isInView, ease, Icon }: {
     >
       {/* Card */}
       <div
-        className={`border p-8 flex flex-col items-center justify-center gap-4 transition-all duration-200 cursor-pointer overflow-hidden h-[160px] ${
+        className={`border p-4 sm:p-8 flex flex-col items-center justify-center gap-3 transition-all duration-200 cursor-pointer overflow-hidden h-[160px] w-full ${
           active ? "border-gold bg-gold/[0.08]" : "border-secondary-foreground/15 hover:border-gold hover:bg-gold/[0.08]"
         }`}
         style={{ borderRadius: 4 }}
@@ -58,7 +58,7 @@ const ClientCard = ({ c, i, isInView, ease, Icon }: {
         onClick={() => setActive(v => !v)}
       >
         <Icon className="text-gold" size={32} strokeWidth={1.5} />
-        <div className="flex items-center justify-center min-h-[2.5rem]">
+        <div className="flex items-center justify-center w-full">
           <AnimatePresence mode="wait">
             {active ? (
               <motion.span
@@ -67,7 +67,7 @@ const ClientCard = ({ c, i, isInView, ease, Icon }: {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
-                className="font-body text-sm font-medium text-gold text-center"
+                className="font-body text-sm font-medium text-gold text-center w-full block"
               >
                 {c.funny}
               </motion.span>
@@ -78,7 +78,7 @@ const ClientCard = ({ c, i, isInView, ease, Icon }: {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.2 }}
-                className="font-body text-base font-semibold text-secondary-foreground text-center"
+                className="font-body text-sm font-semibold text-secondary-foreground text-center w-full block"
               >
                 {c.label}
               </motion.span>
