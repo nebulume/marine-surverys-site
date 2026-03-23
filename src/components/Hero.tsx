@@ -93,7 +93,7 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.4, ease, delay: 0.7 + i * 0.15 }}
-                className="font-body text-lg text-gold flex items-center gap-2 sm:gap-3"
+                className="font-body text-base sm:text-lg text-gold flex items-center gap-2 sm:gap-3"
               >
                 {step}
                 {i < 2 && (
@@ -114,7 +114,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease, delay: 1.1 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-row items-center justify-center gap-3"
         >
           <a href="#contact" className="btn-primary">
             Get in Touch

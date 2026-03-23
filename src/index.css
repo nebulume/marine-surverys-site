@@ -96,9 +96,12 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold px-8 py-3.5 text-sm tracking-wide transition-all duration-200;
+    @apply inline-flex items-center justify-center bg-primary text-primary-foreground font-semibold px-8 py-3.5 text-sm tracking-wide transition-all duration-200 whitespace-nowrap;
     font-family: var(--font-body);
     border-radius: 4px;
+    min-width: 148px;
+    line-height: 1.5;
+    text-decoration: none;
   }
 
   .btn-primary:hover {
